@@ -43,7 +43,7 @@ async def start_wishlist_edit(message: Message, state: FSMContext):
 
 async def cancel_wishlist(message: Message, state: FSMContext):
     await state.clear()
-    await message.answer("Скасовано.")
+    await message.answer("❌Скасовано.")
 
 async def save_wishlist(message: Message, state: FSMContext):
     wishlist_text = message.text.strip()
@@ -79,7 +79,7 @@ async def show_profile(message: Message, bot: Bot):
         if assigned_info:
             profile_text += "\n".join(assigned_info)
         else:
-            profile_text += "Ще ніхто не випав."
+            profile_text += "❌Ще ніхто не випав."
     else:
         profile_text += "Ви поки що не приєднувались до жодної гри."
 
@@ -104,7 +104,7 @@ async def show_assigned_wishlist(message: Message, bot: Bot):
     assigned_entries = [r for r in rows if r["assigned_to"] is not None]
 
     if not assigned_entries:
-        await message.answer("Ще ніхто не призначений вам.")
+        await message.answer("❌Ще ніхто не призначений вам.")
         return
 
     assigned_entry = assigned_entries[0]
